@@ -1,33 +1,39 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 const useDarkMode = (): [string, () => void] => {
-  const [theme, setTheme] = useState('light') // Default to 'light' initially
+  const [theme, setTheme] = useState('')
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const savedTheme = localStorage.getItem('theme')
+      console.log('savedTheme', savedTheme)
       if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
         setTheme(savedTheme)
-      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         setTheme('dark')
       } else {
         setTheme('light')
       }
+      console.log('initial theme', theme)
     }
-  }, []) // Empty dependency array ensures this runs only once on mount
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('theme', theme)
-      document.body.classList.remove(theme === 'light' ? 'dark' : 'light')
-      document.body.classList.add(theme)
-    }
-  }, [theme]) // Runs every time theme changes
+  }, [theme])
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'))
+    setTheme((prevTheme) => {
+      const newTheme = prevTheme === 'light' ? 'dark' : 'light'
+
+      if (typeof window !== 'undefined') {
+        console.log('prev theme', prevTheme)
+        localStorage.setItem('theme', newTheme)
+        console.log('new theme', newTheme)
+        document.body.classList.remove(prevTheme)
+        document.body.classList.add(newTheme)
+      }
+
+      return newTheme
+    })
   }
 
   return [theme, toggleTheme]
