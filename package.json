@@ -13,11 +13,12 @@
     "start": "next start",
     "prepare": "husky || true",
     "format": "prettier . --write",
-    "lint": "eslint --fix --max-warnings=0",
+    "lint": "eslint --fix --no-warn-ignored --max-warnings=0",
     "commit": "cz --hook || true",
     "commitlint": "commitlint --edit"
   },
   "dependencies": {
+    "framer-motion": "^11.2.5",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18"
@@ -46,7 +47,7 @@
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5",
+    "typescript": "^5.5.3",
     "typescript-eslint": "^7.8.0"
   }
 }
