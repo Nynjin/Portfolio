@@ -1,8 +1,10 @@
 'use client'
 
 import useDarkMode from '@/hooks/useDarkMode'
+import useLoading from '@/hooks/useLoading'
+import { Loading } from '@/utils/Loading'
 
-import { FC, ReactNode, useState } from 'react'
+import { FC, ReactNode, useEffect, useState } from 'react'
 
 import { motion } from 'framer-motion'
 
@@ -12,12 +14,11 @@ interface DarkModeWrapperProps {
 
 export const DarkModeWrapper: FC<DarkModeWrapperProps> = ({ children }) => {
   const [theme, toggleTheme] = useDarkMode()
+  const { loading, finishLoading } = useLoading()
+  const [isInitialRender, setIsInitialRender] = useState(true)
 
   // Spreading speed for light/dark mode transition
   const transitionDuration = 0.5
-
-  // State to track the initial render
-  const [isInitialRender, setIsInitialRender] = useState(true)
 
   const handleAnimationComplete = () => {
     if (isInitialRender) {
@@ -25,15 +26,21 @@ export const DarkModeWrapper: FC<DarkModeWrapperProps> = ({ children }) => {
     }
   }
 
-  if (theme === '') {
-    return <div>Loading...</div>
+  useEffect(() => {
+    if (theme === 'dark' || theme === 'light') {
+      finishLoading()
+    }
+  }, [theme, finishLoading])
+
+  if (loading) {
+    return <Loading />
   }
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <motion.div
         className={
-          'right-0 bottom-0 bg-white text-black fixed mix-blend-difference w-screen origin-bottom-right'
+          'right-0 bottom-0 fixed bg-white mix-blend-difference w-screen origin-bottom-right'
         }
         style={{
           zIndex: -1,

@@ -8,7 +8,6 @@ const useDarkMode = (): [string, () => void] => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const savedTheme = localStorage.getItem('theme')
-      console.log('savedTheme', savedTheme)
       if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
         setTheme(savedTheme)
       } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -16,7 +15,6 @@ const useDarkMode = (): [string, () => void] => {
       } else {
         setTheme('light')
       }
-      console.log('initial theme', theme)
     }
   }, [theme])
 
@@ -25,9 +23,7 @@ const useDarkMode = (): [string, () => void] => {
       const newTheme = prevTheme === 'light' ? 'dark' : 'light'
 
       if (typeof window !== 'undefined') {
-        console.log('prev theme', prevTheme)
         localStorage.setItem('theme', newTheme)
-        console.log('new theme', newTheme)
         document.body.classList.remove(prevTheme)
         document.body.classList.add(newTheme)
       }
