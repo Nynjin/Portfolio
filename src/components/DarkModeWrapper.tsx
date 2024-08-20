@@ -40,11 +40,11 @@ export const DarkModeWrapper: FC<DarkModeWrapperProps> = ({ children }) => {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <motion.div
         className={
-          'right-0 bottom-0 fixed bg-white mix-blend-difference w-screen origin-bottom-right'
+          'right-0 top-0 fixed bg-white mix-blend-difference w-screen origin-top-right'
         }
         style={{
           zIndex: -1,
-          borderTopLeftRadius: '100%',
+          borderBottomLeftRadius: '100%',
           aspectRatio: '1/1',
         }}
         initial={{ scale: theme === 'dark' ? 0 : 1.75 }}
@@ -67,7 +67,7 @@ export const DarkModeWrapper: FC<DarkModeWrapperProps> = ({ children }) => {
           borderRadius: '100%',
         }}
         onClick={toggleTheme}
-        className="right-3 bottom-3 fixed w-12 h-12 mix-blend-difference cursor-pointer"
+        className="right-3 top-3 fixed w-10 h-10 mix-blend-difference cursor-pointer z-50"
       />
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
