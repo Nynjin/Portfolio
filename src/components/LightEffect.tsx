@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import { Particle } from "@/types/Particle";
@@ -23,7 +23,7 @@ interface LightEffectProps {
     count: number;
 }
 
-export const LightEffect = ({ count }: LightEffectProps) => {
+export const LightEffect: FC<LightEffectProps> = ({ count }: LightEffectProps) => {
     const [particles, setParticles] = useState<Particle[]>([]);
 
     useEffect(() => {
@@ -35,7 +35,7 @@ export const LightEffect = ({ count }: LightEffectProps) => {
             {particles.map((particle) => (
                 <motion.div
                     key={particle.id}
-                    className="absolute rounded-full bg-blue-500"
+                    className="absolute rounded-full bg-blue-600"
                     style={{
                         width: `${particle.size}px`,
                         height: `${particle.size}px`,    
@@ -66,7 +66,7 @@ export const LightEffect = ({ count }: LightEffectProps) => {
                     {
                         width: '100%',
                         height: '100%',
-                        background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(59, 130, 246, 0.5) 250vh)',
+                        background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(37, 99, 235, 0.5) 250vh)',
                     }
                 }
             />
