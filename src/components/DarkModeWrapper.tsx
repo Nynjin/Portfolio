@@ -18,7 +18,8 @@ export const DarkModeWrapper: FC<DarkModeWrapperProps> = ({ children }) => {
   const [isInitialRender, setIsInitialRender] = useState(true)
 
   // Spreading speed for light/dark mode transition
-  const transitionDuration = 0.5
+  const transitionDuration = 0.7
+  const maxScale = 2.5 //TODO: change maxScale based on device format
 
   const handleAnimationComplete = () => {
     if (isInitialRender) {
@@ -47,9 +48,9 @@ export const DarkModeWrapper: FC<DarkModeWrapperProps> = ({ children }) => {
           borderTopLeftRadius: '100%',
           aspectRatio: '1/1',
         }}
-        initial={{ scale: theme === 'dark' ? 0 : 1.75 }}
+        initial={{ scale: theme === 'dark' ? 0 : maxScale }}
         animate={{
-          scale: theme === 'dark' ? 0 : 1.75,
+          scale: theme === 'dark' ? 0 : maxScale,
           transition: { duration: isInitialRender ? 0 : transitionDuration },
         }}
         onAnimationComplete={handleAnimationComplete}
@@ -58,7 +59,8 @@ export const DarkModeWrapper: FC<DarkModeWrapperProps> = ({ children }) => {
       <motion.img
         src={theme === 'light' ? '/sun.png' : '/moon.png'}
         alt="Toggle Theme"
-        initial={{ scale: 1 }}
+        initial={{ scale: 1, x: 100 }}
+        animate={{ x: 0 }}
         whileHover={{ scale: 1.2 }}
         whileTap={{
           scale: 1,
@@ -67,7 +69,7 @@ export const DarkModeWrapper: FC<DarkModeWrapperProps> = ({ children }) => {
           borderRadius: '100%',
         }}
         onClick={toggleTheme}
-        className="right-3 bottom-3 fixed w-12 h-12 mix-blend-difference cursor-pointer"
+        className="right-3 bottom-3 fixed w-12 h-12 mix-blend-difference cursor-pointer z-50"
       />
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
