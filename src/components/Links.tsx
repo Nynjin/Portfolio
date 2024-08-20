@@ -7,7 +7,7 @@ export const Links: FC = () => {
         <motion.div
             className="fixed bottom-5 left-5 gap-4 flex flex-col mix-blend-difference"
             initial={{ x: -100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
+            animate={{ x: 0, opacity: 1, transition: { duration: 1, delay: 0.2 } }}
         >
 
             <a href="https://www.linkedin.com/in/moncef-hassani-b3a358222/" target="_blank">

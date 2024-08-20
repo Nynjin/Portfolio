@@ -12,7 +12,7 @@ const generateParticles = (count: number) => {
             x: Math.random() * 100,
             duration: 20,
             delay: Math.random() * 80,
-            size: Math.random() * 4 + 2,
+            size: Math.random() * 5 + 2,
         });
     }
 
@@ -61,7 +61,7 @@ export const LightEffect: FC<LightEffectProps> = ({ count }: LightEffectProps) =
                     }}
                 />
             ))}
-            <div
+            <motion.div
                 style={
                     {
                         width: '100%',
@@ -69,6 +69,8 @@ export const LightEffect: FC<LightEffectProps> = ({ count }: LightEffectProps) =
                         background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(37, 99, 235, 0.5) 250vh)',
                     }
                 }
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { duration: 1, delay: 0.2 } }}
             />
 
         </div>

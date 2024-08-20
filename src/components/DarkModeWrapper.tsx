@@ -60,7 +60,7 @@ export const DarkModeWrapper: FC<DarkModeWrapperProps> = ({ children }) => {
         src={theme === 'light' ? '/sun.png' : '/moon.png'}
         alt="Toggle Theme"
         initial={{ scale: 1, x: 100 }}
-        animate={{ x: 0 }}
+        animate={{ x: 0, transition: { duration: 1, delay: 0.2 } }}
         whileHover={{ scale: 1.2 }}
         whileTap={{
           scale: 1,
@@ -72,9 +72,9 @@ export const DarkModeWrapper: FC<DarkModeWrapperProps> = ({ children }) => {
         className="right-3 bottom-3 fixed w-12 h-12 mix-blend-difference cursor-pointer z-50"
       />
 
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <div>
         {children}
-      </motion.div>
+      </div>
     </motion.div>
   )
 }
