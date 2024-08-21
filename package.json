@@ -13,7 +13,7 @@
     "start": "next start",
     "prepare": "husky || true",
     "format": "prettier . --write",
-    "lint": "eslint --fix --no-warn-ignored --max-warnings=0",
+    "lint": "eslint --fix --no-warn-ignored",
     "commit": "cz --hook || true",
     "commitlint": "commitlint --edit"
   },
@@ -21,7 +21,8 @@
     "framer-motion": "^11.2.5",
     "next": "14.2.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-intersection-observer": "^9.13.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",

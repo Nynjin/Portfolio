@@ -72,9 +72,7 @@ export const DarkModeWrapper: FC<DarkModeWrapperProps> = ({ children }) => {
         className="right-3 bottom-3 fixed mix-blend-difference cursor-pointer z-50 w-8 sm:w-12"
       />
 
-      <div>
-        {children}
-      </div>
+      <div className="overflow-clip">{children}</div>
     </motion.div>
   )
 }
