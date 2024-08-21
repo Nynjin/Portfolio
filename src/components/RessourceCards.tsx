@@ -15,7 +15,7 @@ interface RessourceCardProps {
 
 export const RessourceCards: FC<RessourceCardProps> = ({ ressources }: RessourceCardProps) => {
   return (
-    <div className="grid grid-cols-2 gap-20">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-20 mix-blend-difference m-20">
       {ressources.map((ressource, index) => {
         const controls = useAnimation()
         // eslint-disable-next-line @typescript-eslint/no-unsafe-call
@@ -24,6 +24,8 @@ export const RessourceCards: FC<RessourceCardProps> = ({ ressources }: Ressource
         useEffect(() => {
           if (inView) {
             void controls.start('visible')
+          } else {
+            void controls.start('hidden')
           }
         }, [controls, inView])
 
@@ -39,15 +41,13 @@ export const RessourceCards: FC<RessourceCardProps> = ({ ressources }: Ressource
               hidden: { opacity: 0, x: index % 2 === 0 ? '-90%' : '90%' },
             }}
           >
-            <img
-              src={ressource.image}
-              alt={ressource.title}
-              className="object-cover w-1/5 p-10 mix-blend-difference"
-            />
+            <img src={ressource.image} alt={ressource.title} className="object-cover w-1/6 m-5" />
 
             <div className="p-4">
-              <h2 className="font-bold text-lg xl:text-xl text-gray-600">{ressource.title}</h2>
-              <p className="text-sm xl:text-lg text-gray-400">{ressource.description}</p>
+              <h2 className="font-bold text-sm sm:text-lg xl:text-xl text-gray-600">
+                {ressource.title}
+              </h2>
+              <p className="text-xs sm:text-sm xl:text-lg text-gray-400">{ressource.description}</p>
             </div>
           </motion.div>
         )
