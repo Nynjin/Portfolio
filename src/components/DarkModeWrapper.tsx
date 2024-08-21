@@ -69,7 +69,7 @@ export const DarkModeWrapper: FC<DarkModeWrapperProps> = ({ children }) => {
           borderRadius: '100%',
         }}
         onClick={toggleTheme}
-        className="right-3 bottom-3 fixed w-12 h-12 mix-blend-difference cursor-pointer z-50"
+        className="right-3 bottom-3 fixed mix-blend-difference cursor-pointer z-50 w-8 sm:w-12"
       />
 
       <div>
