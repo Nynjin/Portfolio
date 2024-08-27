@@ -26,7 +26,7 @@ export default function Home() {
         Moncef Hassani
       </motion.h1>
 
-      <div style={{ height: '100vh' }} />
+      <div style={{ height: '80vh' }} />
 
       <motion.h1
         className="font-bold flex justify-center items-center h-screen text-transparent text-2xl sm:text-4xl xl:text-5xl 2xl:text-7xl"
@@ -54,7 +54,7 @@ export default function Home() {
         }}
       />
 
-      <div style={{ height: '100vh' }} />
+      <div style={{ height: '80vh' }} />
 
       <motion.h1
         className="font-bold flex justify-center items-center h-screen text-transparent text-2xl sm:text-4xl xl:text-5xl 2xl:text-7xl"
@@ -107,7 +107,7 @@ export default function Home() {
         ]}
       />
 
-      <div style={{ height: '100vh' }} />
+      <div style={{ height: '80vh' }} />
 
       <motion.h1
         className="font-bold flex justify-center items-center h-screen text-transparent text-2xl sm:text-4xl xl:text-5xl 2xl:text-7xl"

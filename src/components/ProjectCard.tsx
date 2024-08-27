@@ -21,24 +21,40 @@ export const ProjectCard: FC<ProjectProps> = ({ project }) => {
 
   const visible = {
     opacity: 0.15,
-    left: '20vw',
-    borderLeft: '30vw solid transparent',
-    borderRight: '30vw solid transparent',
+    left: '4vw',
+    borderLeft: '45vw solid transparent',
+    borderRight: '45vw solid transparent',
     position: 'fixed',
     transition: { duration: 0.5 },
+  }
+
+  const cardVisible = {
+    opacity: 1,
+    transition: {
+      delay: 0.4,
+    },
+  }
+
+  const cardInvisible = {
+    opacity: 0,
   }
 
   return (
     <section>
       <div className="flex justify-center items-center h-screen">
         <motion.div
-          className="relative w-8/12 h-2/5 sm:h-auto lg:w-6/12"
+          className="inset-0 z-10 p-40"
           onViewportEnter={() => {
             setIsOnViewport(true)
           }}
           onViewportLeave={() => {
             setIsOnViewport(false)
           }}
+        ></motion.div>
+        <motion.div
+          className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8/12 h-2/5 sm:h-auto lg:w-6/12 z-50"
+          initial={isOnViewport ? cardVisible : cardInvisible}
+          animate={isOnViewport ? cardVisible : cardInvisible}
         >
           <a href={project.link} target="_blank" rel="noopener noreferrer">
             <img
