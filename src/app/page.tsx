@@ -14,7 +14,8 @@ export default function Home() {
       <LightEffect count={50} />
       <Links />
       <motion.h1
-        className="font-bold flex justify-center items-center h-screen text-transparent text-3xl sm:text-5xl xl:text-7xl 2xl:text-9xl"
+        // ref={titleRef}
+        className=" font-bold flex justify-center items-center h-screen text-transparent text-3xl sm:text-5xl xl:text-7xl 2xl:text-9xl"
         style={{
           background: 'linear-gradient(90deg, #ff00ff, #00ffff)',
           backgroundClip: 'text',

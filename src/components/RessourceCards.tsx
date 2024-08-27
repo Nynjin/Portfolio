@@ -33,7 +33,7 @@ export const RessourceCards: FC<RessourceCardProps> = ({ ressources }: Ressource
           <motion.div
             ref={ref}
             key={ressource.title}
-            className="rounded-lg shadow-lg overflow-hidden flex flex-row mb-10"
+            className="rounded-lg shadow-lg overflow-hidden grid grid-cols-2"
             initial="hidden"
             animate={controls}
             variants={{
@@ -41,9 +41,18 @@ export const RessourceCards: FC<RessourceCardProps> = ({ ressources }: Ressource
               hidden: { opacity: 0, x: index % 2 === 0 ? '-90%' : '90%' },
             }}
           >
-            <img src={ressource.image} alt={ressource.title} className="object-cover w-1/6 m-5" />
+            <img src={ressource.image} alt={ressource.title} className="pl-4 sm:w-2/3" />
+            {/* <Image
+              src={'/' + ressource.image}
+              alt={ressource.title}
+              width={50}
+              height={50}
+              style={{
+                boxShadow: '0 0 10px 5px rgba(0, 0, 0, 0.5)',
+              }}
+            /> */}
 
-            <div className="p-4">
+            <div className="p-4 col-span-2">
               <h2 className="font-bold text-sm sm:text-lg xl:text-xl text-gray-600">
                 {ressource.title}
               </h2>

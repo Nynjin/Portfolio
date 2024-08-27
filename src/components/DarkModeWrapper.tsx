@@ -17,15 +17,39 @@ export const DarkModeWrapper: FC<DarkModeWrapperProps> = ({ children }) => {
   const { loading, finishLoading } = useLoading()
   const [isInitialRender, setIsInitialRender] = useState(true)
 
+  const initialMaxScale = 1.5
+  const [maxScale, setMaxScale] = useState(initialMaxScale)
+
   // Spreading speed for light/dark mode transition
   const transitionDuration = 0.7
-  const maxScale = 2.5 //TODO: change maxScale based on device format
+
+  const updateMaxScale = () => {
+    if (typeof window !== 'undefined') {
+      const format = window.innerHeight / window.innerWidth
+      if (format > 1) {
+        setMaxScale(initialMaxScale * format)
+      } else {
+        setMaxScale(initialMaxScale)
+      }
+    }
+  }
 
   const handleAnimationComplete = () => {
     if (isInitialRender) {
       setIsInitialRender(false)
     }
   }
+
+  useEffect(() => {
+    updateMaxScale()
+    window.addEventListener('resize', updateMaxScale)
+    window.addEventListener('orientationchange', updateMaxScale)
+
+    return () => {
+      window.removeEventListener('resize', updateMaxScale)
+      window.removeEventListener('orientationchange', updateMaxScale)
+    }
+  }, [])
 
   useEffect(() => {
     if (theme === 'dark' || theme === 'light') {
