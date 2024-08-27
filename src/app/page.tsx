@@ -71,13 +71,13 @@ export default function Home() {
           {
             title: "Réaliser un développement d'application",
             description:
-              "Je suis capable de théoriser, d'élaborer et de prototyper des algorithmes permettant de répondre à des problématiques complexes. La montée en compétences sur des technologies de pointe n'a rien de nouveau pour moi",
+              "J'ai de l'expérience dans le développement d'applications web, mobiles et logicielles. Je suis capable de monter en compétences en autonomie sur des technologies de pointe comme la réalité virtuelle ou l'intelligence artificielle",
             image: 'development.png',
           },
           {
             title: 'Optimiser  des applications informatiques',
             description:
-              "Je suis particulièrement rigoureux en terme de recherches et de benchmarking pour choisir les solutions technique et technologiques les plus adaptées à mon besoin. J'essaye toujours de rendre mes applications les plus performantes possibles",
+              "Je suis capable de théoriser, d'élaborer et de prototyper des algorithmes optimisés pour répondre à des problématiques complexes. Je suis particulièrement rigoureux en terme de recherches et de benchmarking pour choisir les solutions technique et technologiques les plus adaptées à mes besoins",
             image: 'optimisation.png',
           },
           {
@@ -89,13 +89,13 @@ export default function Home() {
           {
             title: 'Conduire un projet',
             description:
-              "J'ai su mener à bien de nombreux projets en Agile dans le cadre de mes études, mais également dans le contexte de réalisations professionnelles destinées à être commercialisées",
+              "J'ai su mener à bien de nombreux projets collaboratifs en Agile dans le cadre de mes études, mais également dans le contexte de réalisations professionnelles destinées à être commercialisées",
             image: 'project.png',
           },
           {
             title: "Gérer des données de l'information",
             description:
-              "J'ai eu à travailler avec des structures de données particulièrement complexes, de les traiter, de les transformer, afin de les rendre exploitables au sein de systèmes complexes",
+              "J'ai eu à travailler avec des structures de données particulièrement complexes, de les traiter, de les transformer, afin de les rendre exploitables",
             image: 'database.png',
           },
           {
