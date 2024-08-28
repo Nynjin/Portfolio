@@ -1,6 +1,7 @@
 'use client'
 
 import { DarkModeWrapper } from '@/components/DarkModeWrapper'
+import { ExperienceCards } from '@/components/ExperienceCard'
 import { LightEffect } from '@/components/LightEffect'
 import { Links } from '@/components/Links'
 import { ProjectCard } from '@/components/ProjectCard'
@@ -42,19 +43,37 @@ export default function Home() {
         project={{
           title: 'IMU VIEWER',
           description:
-            'Projet web en NextJS utilisant un serveur Socket.IO permettant de connecter un tracker avec un code unique et de visualiser ses déplacements en 3D.',
+            "Projet web NextJS utilisant permettant de connecter un tracker à l'aide de Socket.IO et de visualiser ses déplacements en 3D avec ThreeJS.",
           image: 'imu-viewer.png',
           link: 'https://tracker.moncef.studio',
           techStack: [
             'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-plain.svg',
             'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/threejs/threejs-original-wordmark.svg',
-            'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg',
+            'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original-wordmark.svg',
             'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain-wordmark.svg',
           ],
         }}
       />
 
       <div style={{ height: '80vh' }} />
+
+      <ProjectCard
+        project={{
+          title: 'ANSIBLE MANAGER',
+          description:
+            'Système de gestion de serveurs distants avec Ansible capable de créer un environnement contrôlé avec un terminal interne pour un serveur de production et de staging permettant actuellement de déployer une application php ou wordpress.',
+          image: 'empty.png',
+          link: 'https://github.com/Nynjin/Ansible',
+          techStack: [
+            'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ansible/ansible-plain-wordmark.svg',
+            'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/openstack/openstack-plain-wordmark.svg',
+            'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-plain.svg',
+            'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-plain-wordmark.svg',
+            'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-plain-wordmark.svg',
+            'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain-wordmark.svg',
+          ],
+        }}
+      />
 
       <motion.h1
         className="font-bold flex justify-center items-center h-screen text-transparent text-2xl sm:text-4xl xl:text-5xl 2xl:text-7xl"
@@ -107,8 +126,6 @@ export default function Home() {
         ]}
       />
 
-      <div style={{ height: '80vh' }} />
-
       <motion.h1
         className="font-bold flex justify-center items-center h-screen text-transparent text-2xl sm:text-4xl xl:text-5xl 2xl:text-7xl"
         style={{
@@ -116,8 +133,50 @@ export default function Home() {
           backgroundClip: 'text',
         }}
       >
-        Mon expérience
+        Mes expériences
       </motion.h1>
+
+      <ExperienceCards
+        experiences={[
+          {
+            title: 'Alternant - Développeur logiciel',
+            date: "Octobre 2022 - Aujourd'hui",
+            description:
+              "Développement de solutions logicielles pour intégrer des modules de simulations électriques complexes au sein d'une application micro-services. Benchmarking, prototypage d'algorithmes, déploiement et contribution à l'évolution du stack technique",
+            image: 'ikattan.png',
+            techStack: [
+              'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-plain.svg',
+              'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-plain.svg',
+              'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cmake/cmake-plain-wordmark.svg',
+              'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-plain-wordmark.svg',
+              'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bun/bun-line.svg',
+              'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg',
+              'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg',
+              'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-plain.svg',
+              'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain-wordmark.svg',
+              'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-plain-wordmark.svg',
+            ],
+          },
+          {
+            title: 'Stagiaire - Développeur Unity en Réalité Virtuelle',
+            date: 'Avril - Juin 2022',
+            description:
+              "Développement d’un Serious Game en Réalité Virtuelle pour interagir avec des objets 3D issus d'outils de CAO. Implémentation d'un système de création d'avatar, de simulation de physiques et d'interactions",
+            image: 'smart.jpg',
+            techStack: [
+              'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-plain-wordmark.svg',
+            ],
+          },
+          {
+            title: "Bénévolat - Membre du BDE Informatique de l'IUT Lyon 1",
+            date: '2022 - 2023',
+            description:
+              'Planification et réalisation d’évènements. Participation à des week-end de formation',
+            image: 'bde.jpeg',
+            techStack: [''],
+          },
+        ]}
+      />
     </DarkModeWrapper>
   )
 }

@@ -55,12 +55,15 @@ export const ProjectCard: FC<ProjectProps> = ({ project }) => {
           className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8/12 h-2/5 sm:h-auto lg:w-6/12 z-50"
           initial={isOnViewport ? cardVisible : cardInvisible}
           animate={isOnViewport ? cardVisible : cardInvisible}
+          style={{
+            pointerEvents: isOnViewport ? 'auto' : 'none',
+          }}
         >
           <a href={project.link} target="_blank" rel="noopener noreferrer">
             <img
               src={project.image}
               alt={project.title}
-              className="rounded-lg object-cover w-full h-full"
+              className="object-cover w-full h-full"
               style={{
                 boxShadow: '0 0 10px 5px rgba(0, 0, 0, 0.5)',
               }}
@@ -73,16 +76,13 @@ export const ProjectCard: FC<ProjectProps> = ({ project }) => {
                 {project.title}
               </h2>
 
-              <div className="flex justify-between items-end w-full">
-                <h1 className="text-black text-l sm:text-lg xl:text-xl">{project.description}</h1>
-                <div className="flex flex-col items-end">
+              <div className="flex justify-between items-end w-full absolute">
+                <h1 className="text-black text-sm sm:text-lg xl:text-xl w-11/12">
+                  {project.description}
+                </h1>
+                <div className="flex flex-col items-end w-1/5 sm:w-1/12 xl:w-1/6">
                   {project.techStack.map((tech, index) => (
-                    <img
-                      key={index}
-                      src={tech}
-                      alt={tech}
-                      className="w-3/5 sm:w-1/4 xl:w-1/3 m-1"
-                    />
+                    <img key={index} src={tech} alt={tech} className="m-1 w-12" />
                   ))}
                 </div>
               </div>
